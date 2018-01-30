@@ -1,0 +1,18 @@
+<!DOCTYPE runhtml>
+<runhtml>
+  <head>
+    <project>
+      <class>dishtml.botInit</class>
+    </project>
+  </head>
+  <run>
+    <discordAPI tovar="apiConnection" action="connect" token="botToken" />
+    <if type="boolean" variable="apiConnection" equals="true">
+      <discordAPI apiConn="apiConnection" action="init" />
+      <return variable="apiConnection" />
+    </if>
+    <else>
+      <var name="error" value="dishtml.exception.InvalidToken" />
+    </else>
+  </run>
+</runhtml>
