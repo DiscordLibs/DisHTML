@@ -1,0 +1,35 @@
+<!DOCTYPE discord>
+<discord>
+  <run>
+    <!-- DisHTML Configuration -->
+    <var name="botToken" value="[PUT THE BOT TOKEN HERE]" />
+    <var name="botGame" value="Type !help for help" />
+    <var name="botStatus" value="STATUS_DND" />
+    <!-- Custom Settings -->
+    <var name="prefix" value="!" />
+    <!-- Start the bot -->
+    <run src="lib/base.html">
+      <dishtml registerEvent="messageRecieved" eventVariable="event">
+        <if type="string_compare" variable="event" equals="!help">
+         <dishtml action="sendMessage">
+            <newEmbed style="embed-color:#fff;">
+              <title>Help for the DisHTML sample Bot</title>
+              <description>
+                !help : Display this message<br>
+                !test : A test message that mentions you
+              </description>
+              <footer>Just the average help command.</footer>
+            </newEmbed>
+          </dishtml>
+        </if>
+        <if type="string_compare" variable="event" equals="!test">
+         <dishtml action="sendMessage">
+            <description>
+              Hello, <dishtml get="event_user" as="mention" />. Do you like this test command?
+            </description>
+          </dishtml>
+        </if>
+      </dishtml>
+    </run>
+  </run>
+</discord>
