@@ -1,0 +1,23 @@
+<!DOCTYPE runhtml>
+<runhtml>
+  <head>
+    <project>
+      <name>DisHTML</name>
+      <version>1.0-SNAPSHOT</version>
+      <namespace>dishtml</namespace>
+      <dependencies>
+        <dependency name="DiscordAPI" version="2.9.1" />
+        <dependency name="RunHTML" version="1.2" />
+      </dependencies>
+    </project>
+  </head>
+  <run>
+    <require src="botInit.html"></require>
+    <if type="notNull" variable="bot" equals="true">
+      <require src="dishtmlStart.html"></require>
+    </if>
+    <else>
+      <log type="severe">The bot could not start beacuase of: <var name="error" /></log>
+    </else>
+  </run>
+</runhtml>
