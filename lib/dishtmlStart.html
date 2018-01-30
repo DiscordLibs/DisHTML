@@ -1,0 +1,21 @@
+<!DOCTYPE discord>
+<discord>
+  <head>
+    <project>
+      <class>dishtml.dishtmlStart</class>
+    </project>
+  </head>
+  <run>
+    <discordAPI variable="apiConnection" action="start" />
+    <if type="isset" variable="botGame" equals="true">
+      <discordAPI apiConn="apiConnection" action="setBotGame" value="botGame"/>
+    </if>
+    <if type="isset" variable="botStatus" equals="true">
+      <discordAPI apiConn="apiConnection" action="setBotStaus" value="botStatus"/>
+    </if>
+    <else>
+      <discordAPI apiConn="apiConnection" action="setBotStaus" value="STATUS_ONLINE" />
+    </else>
+    <discordAPI apiConn="apiConnection" action="runBot" instanceVariable="dishtml" />
+  </run>
+</discord>
