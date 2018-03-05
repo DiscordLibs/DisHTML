@@ -7,6 +7,10 @@
   </head>
   <run>
     <discordAPI tovar="apiConnection" action="connect" token="botToken" />
+    <when action="all">
+      <wait for="header-ratelimit-over" />
+      <continue with="action"></continue>
+    </when>
     <if type="boolean" variable="apiConnection" equals="true">
       <discordAPI apiConn="apiConnection" action="init" />
       <return variable="apiConnection" />
