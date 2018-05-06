@@ -8,6 +8,9 @@
   <run>
     <discordAPI tovar="apiConnection" action="connect" token="botToken" />
     <when action="all">
+      <if type="boolean" variable="error" notequals="">
+        <log type="error" message="ERROR: {RESPONSE_ERROR}">
+      </if>
       <wait for="header-ratelimit-over" />
       <continue with="action"></continue>
     </when>
